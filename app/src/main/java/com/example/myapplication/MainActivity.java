@@ -12,7 +12,11 @@ import android.widget.Button;
 public class MainActivity extends AppCompatActivity {
 
     String tag = "spr";
+
     private Button progressBarBtn;
+    private Button pickerBtn;
+    private Button listViewBtn;
+    private Button autoCompleteTextBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,9 +31,47 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        pickerBtn = findViewById(R.id.pickerBtn);
+        pickerBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openPickerActivity();
+            }
+        });
+
+        listViewBtn = findViewById(R.id.listViewBtn);
+        listViewBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openListViewActivity();
+            }
+        });
+
+        autoCompleteTextBtn = findViewById(R.id.autoCompleteTextBtn);
+        autoCompleteTextBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openAutoCompleteTextActivity();
+            }
+        });
     }
     public void openProgressBarActivity() {
         Intent intent = new Intent(this, ProgressBarActivity.class);
+        startActivity(intent);
+    }
+
+    public void openPickerActivity() {
+        Intent intent = new Intent(this, PickerActivity.class);
+        startActivity(intent);
+    }
+
+    public void openListViewActivity() {
+        Intent intent = new Intent(this, ListViewActivity.class);
+        startActivity(intent);
+    }
+
+    public void openAutoCompleteTextActivity() {
+        Intent intent = new Intent(this, AutoCompleteTextActivity.class);
         startActivity(intent);
     }
 
