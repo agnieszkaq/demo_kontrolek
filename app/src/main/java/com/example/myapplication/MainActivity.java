@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
     private Button pickerBtn;
     private Button listViewBtn;
     private Button autoCompleteTextBtn;
+    private Button dialogFragmentBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +55,14 @@ public class MainActivity extends AppCompatActivity {
                 openAutoCompleteTextActivity();
             }
         });
+
+        dialogFragmentBtn = findViewById(R.id.dialogFragmentBtn);
+        dialogFragmentBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openDialogFragemnt();
+            }
+        });
     }
     public void openProgressBarActivity() {
         Intent intent = new Intent(this, ProgressBarActivity.class);
@@ -73,6 +82,11 @@ public class MainActivity extends AppCompatActivity {
     public void openAutoCompleteTextActivity() {
         Intent intent = new Intent(this, AutoCompleteTextActivity.class);
         startActivity(intent);
+    }
+
+    public void openDialogFragemnt() {
+        Fragment1 df = Fragment1.newInstance("Is your mood okey today?");
+        df.show(getSupportFragmentManager(),"dialog");
     }
 
     public void onStart() {
